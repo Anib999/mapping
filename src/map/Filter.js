@@ -74,3 +74,8 @@ const Filter = (props) => {
 }
 
 export default Filter
+
+/**
+ * first have two sidebar all and with date
+ * with date has no all collector and has to plot all way points
+ */

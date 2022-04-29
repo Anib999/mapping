@@ -97,7 +97,8 @@ function MapContainers() {
         <MapContainer
           center={trackPosition}
           zoom={15}
-          scrollWheelZoom={false}
+          scrollWheelZoom={true}
+          attributionControl={false}
           className="map"
         >
           <SetCenterMap />
