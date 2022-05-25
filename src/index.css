@@ -152,3 +152,32 @@ input {
 .leaflet-container .leaflet-shadow-pane img {
   width: 25px !important;
 } */
+
+.bigIcon {
+  width: 25px !important;
+  height: 40px;
+  z-index: 999 !important;
+}
+
+/* #root,
+.App {
+  font-family: sans-serif;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.App .main {
+  flex-grow: 1;
+  width: 100%;
+} */
+
+
+.pro-sidebar {
+  position: fixed !important;
+}
+
+.App .main {
+  padding-left: 270px;
+}

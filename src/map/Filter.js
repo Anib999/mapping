@@ -1,14 +1,15 @@
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { getListOfCollectorApi } from "../services/locationService";
+import { getCurrentDate } from "../utils/generateCurrentDate";
 
 const Filter = (props) => {
 
-    const { handleSubmitData, clearSubmitData } = props
+    const { handleSubmitData, clearSubmitData, showEntryDate, showAllCollector } = props
     const [collList, setCollList] = useState([]);
     const formik = useFormik({
         initialValues: {
-            entrydate: "",
+            entrydate: getCurrentDate('-'),
             userId: 0
         },
         onSubmit: values => {
@@ -31,17 +32,20 @@ const Filter = (props) => {
     return (
         <>
             <form className="form-inline" onSubmit={formik.handleSubmit}>
-                {/* <div>
-                    <label htmlFor="entrydate">
-                        Entry Date:
-                    </label>
-                    <input
-                        type='date'
-                        name="entrydate"
-                        onChange={formik.handleChange}
-                        value={formik.values.entrydate}
-                    />
-                </div> */}
+                {
+                    showEntryDate === true &&
+                    <div>
+                        <label htmlFor="entrydate">
+                            Entry Date:
+                        </label>
+                        <input
+                            type='date'
+                            name="entrydate"
+                            onChange={formik.handleChange}
+                            value={formik.values.entrydate}
+                        />
+                    </div>
+                }
 
                 <div>
                     <label>
@@ -51,7 +55,9 @@ const Filter = (props) => {
                         name="userId"
                         onChange={formik.handleChange}
                         value={formik.values.userId}>
-                        <option key={0} value={0}>All</option>
+                        {
+                            showAllCollector === true && <option key={0} value={0}>All</option>
+                        }
                         {
                             collList.map(res => {
                                 return (

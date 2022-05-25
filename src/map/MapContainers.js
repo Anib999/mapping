@@ -92,6 +92,7 @@ function MapContainers() {
       <Filter
         handleSubmitData={handleSubmitData}
         clearSubmitData={clearSubmitData}
+        showAllCollector={true}
       />
       <div className='mapContainerDiv'>
         <MapContainer
@@ -112,7 +113,7 @@ function MapContainers() {
             allDataLat.map((res, index) => {
               return (
                 <Marker
-                  key={index}
+                  key={res.LId}
                   icon={iconLists[index] !== undefined ? iconLists[index] : iconLists[0]}
                   ref={markerRef}
                   position={
